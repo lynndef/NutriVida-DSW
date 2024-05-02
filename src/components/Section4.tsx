@@ -2,7 +2,7 @@ import { Forms } from "./Forms";
 
 export function Section4(){
     return(
-        <section className='flex justify-center gap-[98px] relative z-10 top-[-500px]'>
+        <section className='flex justify-center gap-[98px] relative z-10 top-[-500px]'  id="section4" >
         <div className='flex flex-col bg-white w-[810px] h-[1460px] items-center pt-[200px]'>
         <h1 className='text-7xl font-primarySemiBold'>Fale Comigo!</h1>
         <div className='flex flex-row gap-14 pt-[60px] w-[600px] pl-24'>

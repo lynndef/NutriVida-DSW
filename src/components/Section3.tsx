@@ -1,6 +1,6 @@
 export function Section3(){
     return(
-        <section className="flex justify-center">
+        <section className="flex justify-center" id="section3">
         <div className="bg-[url('/imagens/bg-section-3.png')] bg-no-repeat bg-center bg-cover w-[1920px] h-[1250px] relative z-20 top-[-300px]">
          <div className='flex items-center pt-[400px] pl-72 gap-x-4'>    
              <img src="/imagens/nutri-image.webp" alt="" className='widht-[261px] h-[360px]'/> 

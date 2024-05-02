@@ -1,27 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
-import { SectionHeader } from "./components/SectionHeader";
-import { Section2 } from "./components/Section2";
-import { Section3 } from "./components/Section3";
-import { Section4 } from "./components/Section4";
-import { Section5 } from "./components/Section5";
-import { Section6 } from "./components/Section6";
-import { SectionFooter } from "./components/SectionFooter";
+import { LoginPage } from "./pages/LoginPage";
+import { LandingPage } from "./pages/LandingPage";
+import { AdminMenu } from "./pages/AdminMenu";
+import { Tabela } from "./components/Tabela";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
-        element: <section className='h-[6000px]'>
-            <SectionHeader/>
-            <Section2/>
-            <Section3/>
-            <Section4/>
-            <Section5/>
-            <Section6/>
-            <SectionFooter/>
-            </section>,
+      path: "/",
+      element: <LandingPage />,
     },
     {
-        path: "/login",
-        element:  <h1>hello worldo</h1>
-    }
-]);
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/AdminMenu",
+      element: <AdminMenu />,
+      children: [
+        { path: "/AdminMenu/Pacientes&Planos", element: <Tabela table1="Paciente Nome" table2="Paciente ID" table3="Objetivo" table4="Email"/> },
+        { path: "/AdminMenu/inbox", element: <Tabela table1="Paciente Nome" table2="Paciente ID" table3="Consulta Dia" table4="Consulta Hora" table5="Pagamento"/> },
+        { path: "/AdminMenu/pagamentos", element: <Tabela table1="Nome" table2="Email" table3="Mensagem"/> },
+      ],
+    },
+  ]);
