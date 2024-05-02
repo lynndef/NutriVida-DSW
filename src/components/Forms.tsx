@@ -17,7 +17,7 @@ export function Forms(){
           </div>
 
           <label htmlFor="">Mensagem*</label>
-          <textarea placeholder="Olá! Gostaria de..." className="bg-[#414141] text-white w-[420px] h-[140px] max-h-[140px] text-2xl "></textarea>
+          <textarea placeholder="Olá! Gostaria de..." className="bg-[#414141] text-white w-[420px] h-[140px] text-2xl "></textarea>
           <button className="bg-black text-white my-8 ml-[120px] w-[180px] h-[36px]">Enviar</button>
         </form>
         </div>

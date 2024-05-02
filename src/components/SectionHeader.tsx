@@ -5,7 +5,7 @@ export function SectionHeader(){
     <section className="flex justify-center">
     <div className="bg-[url('/imagens/bg-section-1.webp')] bg-no-repeat bg-center bg-cover w-[1920px] h-[916px] relative z-20">
     <div className="flex justify-end">
-      <header className='flex items-center justify-between bg-[#FE770B] w-[868px] h-[94px] rounded-l-full mt-16 relative z-20 opacity-75'>
+      <header className='flex items-center justify-between bg-[#FE770B] w-[868px] h-[94px] rounded-l-full mt-16 relative z-20'>
         <nav className="flex space-x-44 text-4xl pl-9 text-white font-primarySemiBold">
           <a href="#">Contato</a>
           <a href="#">Inicio</a>
