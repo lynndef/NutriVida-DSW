@@ -8,9 +8,9 @@ import { DeletarInbox } from "./DeletarInbox";
 
 export function SelecionarAcao(){
     return(
-        <div>
+        <>
         <Dialog>
-            <DialogTrigger> <h1 className="text-4xl font-primaryBold">+</h1> </DialogTrigger>
+            <DialogTrigger> <button className="bg-white w-32 h-12 font-medium rounded-lg ml-6">Editar Dados</button>  </DialogTrigger>
             <DialogContent>
                 <h1 className="text-4xl font-primarySemiBold mx-auto">Selecione a Ação</h1>´
                 <div className="flex flex-col items-center gap-8">
@@ -23,8 +23,8 @@ export function SelecionarAcao(){
                 </div>
             </DialogContent>
         </Dialog>
-       
-        </div>
+          
+        </>
         
     )
 }

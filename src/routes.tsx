@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage";
 import { LandingPage } from "./pages/LandingPage";
-import { AdminMenu } from "./pages/AdminMenu";
-import { Inbox, ListaPlanos, Pacientes, Pagamentos } from "./components/Tabelas/AdminTables"; 
+import {  Pagamentos } from "./components/Tabelas/AdminTables"; 
+import { AdminUI } from "./pages/AdminUI";
+import { PacienteUI } from "./components/TabelasUI.tsx/PacientesUI";
+import { InboxUI } from "./components/TabelasUI.tsx/InboxUI";
 
 export const router = createBrowserRouter([
   {
@@ -14,16 +16,20 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
+    path: "/AdminUI",
+    element: <AdminUI/>,
+  },
+  {
     path: "/AdminMenu",
-    element: <AdminMenu />,
+    element: <AdminUI />,
     children: [
       { 
         path: "/AdminMenu/Pacientes&Planos", 
-        element: <section className="flex gap-36 h-[0px]"><Pacientes/> <ListaPlanos/> </section>
+        element:  <PacienteUI/> 
       },
       { 
         path: "/AdminMenu/inbox", 
-        element: <Inbox /> 
+        element: <InboxUI /> 
       },
       { 
         path: "/AdminMenu/consultas", 

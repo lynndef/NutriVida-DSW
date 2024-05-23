@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import axios from "axios";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 export function NovoPaciente(){
 
@@ -34,6 +35,7 @@ export function NovoPaciente(){
 
     return( 
         <Dialog>
+            
             <DialogTrigger>
                 <button className="bg-black text-white rounded-sm w-[250px] h-[36px] font-primaryRegular text-2xl">Novo Paciente</button>
             </DialogTrigger>

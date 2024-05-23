@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Tabela } from './Tabela';
 import { Planos } from './Planos';
+import { InboxList } from './InboxList';
 
 export function Inbox() {
   const [mensagens, setMensagens] = useState([]);
@@ -20,9 +21,9 @@ export function Inbox() {
   }, []);
 
   return (
-    <div>
-      <Tabela dados={mensagens} tipo="inbox" />
-    </div>
+    <>
+      <InboxList dados={mensagens} />
+    </>
   );
 }
 
@@ -89,7 +90,7 @@ useEffect(() => {
 }, []);
 
 return (
-    <div className='relative top-[-240px]'>
+    <div>
     <Planos dados={planos} />
     </div>
 );

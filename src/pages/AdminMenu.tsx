@@ -6,7 +6,7 @@ export function AdminMenu () {
     return (
       <section className="flex bg-white">
       <div className="flex bg-white">
-       <aside className="bg-black w-[444px] h-screen">
+       <aside className="bg-black w-[444px] h-screen  ">
 
        <img src="\imagens\nutrivida-logo-white.webp " alt="" className="mx-auto relative top-10 w-40" />
         <div className="pt-10 text-base text-white font-primaryLight flex flex-col mt-16 gap-4 ml-20">

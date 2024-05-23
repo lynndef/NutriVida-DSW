@@ -22,39 +22,39 @@ export function Planos({ dados }) {
   }
 
   return (
-    <aside className="border-solid border-[1px] border-black h-screen w-[600px]">
+  <>
       <input 
-        type="text" 
+        type="number"
         placeholder="Digite o ID do paciente..." 
-        className="bg-[url(/imagens/search.webp)] bg-no-repeat bg-[center_left_1rem] bg-[length:30px_30px] text-white bg-black h-[48px] ml-[150px] mt-20 rounded-xl pl-[60px]"
+        className=" text-black bg-gray-white h-[36px] ml-32 mt-12 rounded-sm border-[#151518] placeholder:text-black"
         value={pacienteId}
         onChange={(event) => setPacienteId(event.target.value)}
       />
       <button 
         onClick={buscarPacientePlanos}
-        className="bg-black text-white font-bold py-2 px-4 rounded-xl h-[48px]" 
+        className="bg-white text-black font-medium py-2 px-4 ml-2 rounded-sm h-[36px]" 
       >
-        Enviar
+        Buscar
       </button>
-      <Table className="mt-12">
+      <Table className="mt-4">
       <TableHeader>
-        <TableHead className="text-black pl-48 text-2xl">Plano Nutricional</TableHead>
+        <TableHead className="text-white pl-56 text-sm">Plano Nutricional</TableHead>
       </TableHeader>
       <TableBody>
         <TableRow>
         {planoPaciente && planoPaciente.length > 0 ? (
           planoPaciente.map((item, index) => (
-            <TableCell key={index} className="pl-8 text-[16px]"> 
+            <TableCell key={index} className="text-white prose"> 
               {item.plano_nutricional}
             </TableCell>
           ))
         ) : (
-          <div className="pl-24 text-base">Nenhum plano encontrado</div>
+          <div className="text-white pl-48 text-sm">Nenhum plano encontrado</div>
         )}
         </TableRow>
         </TableBody>
       </Table>
       
-    </aside>
+      </>
   );
 }
