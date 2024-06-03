@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage";
 import { LandingPage } from "./pages/LandingPage";
-import {  Pagamentos } from "./components/Tabelas/AdminTables"; 
-import { AdminUI } from "./pages/AdminUI";
-import { PacienteUI } from "./components/TabelasUI.tsx/PacientesUI";
-import { InboxUI } from "./components/TabelasUI.tsx/InboxUI";
+import { AdminUI } from "./pages/AdminMenu";
+import { PacienteUI } from "./components/AdminPagesUI.tsx/PacientesUI";
+import { InboxUI } from "./components/AdminPagesUI.tsx/InboxUI";
+import { ConsultasUI } from "./components/AdminPagesUI.tsx/ConsultasUI";
+import { AdminHomeUI } from "./components/AdminPagesUI.tsx/HomeUI";
 
 export const router = createBrowserRouter([
   {
@@ -16,13 +17,13 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/AdminUI",
-    element: <AdminUI/>,
-  },
-  {
     path: "/AdminMenu",
     element: <AdminUI />,
     children: [
+      { 
+        path: "", 
+        element:  <AdminHomeUI/> 
+      },
       { 
         path: "/AdminMenu/Pacientes&Planos", 
         element:  <PacienteUI/> 
@@ -33,8 +34,8 @@ export const router = createBrowserRouter([
       },
       { 
         path: "/AdminMenu/consultas", 
-        element: <Pagamentos/>
-      },
+        element: <ConsultasUI/>
+      }
     ],
   },
 ]);

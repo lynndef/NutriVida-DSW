@@ -1,4 +1,4 @@
-import { Forms } from "../Forms/Forms";
+import { Forms } from "../Forms/FormsLandingPage";
 
 export function Section4(){
     return(

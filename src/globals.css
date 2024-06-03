@@ -133,3 +133,8 @@ body{
     url("/fonts/YaldeviColombo-Regular.ttf") format("truetype");
 }
 
+@font-face{
+  font-family: 'Geist-Sans';
+  src: local("Geist-Sans"),
+  url("/fonts/Geist-Regular.ttf") format("truetype");
+}

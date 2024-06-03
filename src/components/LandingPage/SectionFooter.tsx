@@ -1,3 +1,5 @@
+import { Footerinfo } from "./Footerinfo";
+
 export function SectionFooter(){
     return(
         <section className='flex justify-center z-20 relative top-[-1100px]'>
@@ -8,10 +10,10 @@ export function SectionFooter(){
           <div className='flex justify-end'>
           <div className='flex flex-col text-3xl font-primaryLight pr-40 gap-3'>
             <p>Informações</p>
-            <li><a href="#">horários</a></li>
-            <li><a href="#">local</a></li>
-            <li><a href="#">contato</a></li>
-            <li><a href="#">FAQs</a></li>      
+            <li><Footerinfo link='horários'/></li>
+            <li><Footerinfo link='contato'/></li>
+            <li><Footerinfo link='local'/></li>
+            <li><Footerinfo link='FAQs'/></li>      
           </div>
           </div>  
             <img src="/imagens/nutrivida-logo.webp" alt="" className='relative w-[300px] top-[-250px] pl-24'/>
