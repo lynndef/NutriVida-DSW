@@ -8,7 +8,7 @@ export function DeletarInbox() {
 
   const deletarTodasAsMensagens = async () => {
     try {
-      await axios.delete("http://localhost:5000/mensagens/all");
+      await axios.delete("http://20.102.117.177:5000/mensagens/all");
       console.log("Todas as mensagens foram excluídas com sucesso");
       toast.success("Todas as mensagens foram excluídas com sucesso!");
       setConfirmacao(false);

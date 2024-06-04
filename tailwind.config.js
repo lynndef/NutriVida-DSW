@@ -18,6 +18,7 @@ module.exports = {
       'primaryLight': ['Light'],
       'Trebuchet': ['Trebuchet'],
       'Yaldevi': ['Yaldevi'],
+      'Geist-Sans': ['Geist-Sans'],
     },
     container: {
       center: true,
@@ -83,5 +84,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("tailwindcss-animate")],
 }

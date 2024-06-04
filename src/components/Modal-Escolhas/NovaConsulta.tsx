@@ -14,7 +14,7 @@ export function NovaConsulta() {
 
   const buscarPacientePorId = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/pacientes/${pacienteId}`);
+      const response = await axios.get(`http://20.102.117.177:5000/pacientes/${pacienteId}`);
       setPaciente(response.data);
       setNome(response.data.nome);
     } catch (error) {
@@ -32,7 +32,7 @@ export function NovaConsulta() {
     }
     
     try {
-      const response = await axios.post("http://localhost:5000/consultas", {
+      const response = await axios.post("http://20.102.117.177:5000/consultas", {
         paciente_id: pacienteId,
         nome,
         data_consulta: dataConsulta,
