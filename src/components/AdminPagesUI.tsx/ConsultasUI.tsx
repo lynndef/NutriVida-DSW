@@ -33,18 +33,10 @@ export function ConsultasUI() {
             </CardContent>
           </Card>
           </div>
-
           <Card className="bg-white w-[950px] h-[630px] mt-2 shadow-2xl">
             <CardHeader>
-              <div className="flex">
-              <div>
               <CardTitle className="text-black text-[20px] pl-7 pt-2">Suas Consultas Agendadas</CardTitle>
               <CardDescription className="text-gray-600 text-[16px] pl-7">Todas elas abaixo.</CardDescription>
-              </div>
-              <div className="ml-auto">
-                <RefreshButton/>
-              </div>
-              </div>
             </CardHeader>
             <CardContent>
               <ScrollArea className="h-[500px] w-[900px] rounded-md border-black pr-4">

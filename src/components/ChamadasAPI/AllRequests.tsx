@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Tabela } from './TabelaAll';
 import { Planos } from './Planos';
 import { InboxList } from './Inbox';
+import { RefreshCw } from 'lucide-react';
 
 export function Inbox({ MensagemSelecionada }) {
   const [mensagens, setMensagens] = useState([]);
@@ -30,45 +31,57 @@ export function Inbox({ MensagemSelecionada }) {
 export function Pagamentos({ showDateFilter = false }) {
   const [pagamentos, setPagamentos] = useState([]);
 
-  useEffect(() => {
-    async function fetchPagamentos() {
-      try {
-        const response = await axios.get('http://20.102.117.177:5000/consultas');
-        setPagamentos(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar consultas:', error);
-      }
+  async function fetchPagamentos() {
+    try {
+      const response = await axios.get('http://20.102.117.177:5000/consultas');
+      setPagamentos(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar consultas:', error);
     }
+  }
 
+  useEffect(() => {
     fetchPagamentos();
   }, []);
 
   return (
-    <div>
+    <>
+      <button 
+        className="flex items-center justify-center bg-black text-white rounded-lg ml-auto w-8 h-8 "
+        onClick={fetchPagamentos}
+      >
+       <RefreshCw size={24} />
+      </button>
       <Tabela dados={pagamentos} tipo="pagamentos" showDateFilter={showDateFilter} bgColor="bg-white" textColor="text-black"/>
-    </div>
+    </>
   );
 }
 
 export function Pacientes() {
   const [pacientes, setPacientes] = useState([]);
 
-  useEffect(() => {
-    async function fetchPacientes() {
-      try {
-        const response = await axios.get('http://20.102.117.177:5000/pacientes');
-        setPacientes(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar pacientes:', error);  
-      }
+  async function fetchPacientes() {
+    try {
+      const response = await axios.get('http://20.102.117.177:5000/pacientes');
+      setPacientes(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar pacientes:', error);
     }
+  }
 
+  useEffect(() => {
     fetchPacientes();
   }, []);
 
   return (
     <div>
-      <Tabela dados={pacientes} tipo="pacientes" textColor="text-white"/>
+      <button 
+        className="flex items-center justify-center bg-black text-white rounded-lg ml-auto pr-6"
+        onClick={fetchPacientes}
+      >
+       <RefreshCw size={24} />
+      </button>
+      <Tabela dados={pacientes} tipo="pacientes" textColor="text-white" />
     </div>
   );
 }

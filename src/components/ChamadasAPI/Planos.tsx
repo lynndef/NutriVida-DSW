@@ -35,7 +35,7 @@ export function Planos() {
         toast.error('Plano do paciente não encontrado');
       }
     } catch (error) {
-      setPlanoPaciente("");
+      setPlanoPaciente(""); 
       toast.error('Plano do paciente não encontrado');
       console.error(error);
     }

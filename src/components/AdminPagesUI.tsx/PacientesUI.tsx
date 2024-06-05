@@ -4,7 +4,6 @@ import { Pacientes, ListaPlanos } from "../ChamadasAPI/AllRequests"
 import { PacientePorID } from "../ChamadasAPI/PacientePorID";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../ui/card";
 import { ScrollArea } from "../ui/scroll-area"
-import { RefreshButton } from "../ui/RefreshButton";
 
 export function PacienteUI(){
     return(
@@ -33,9 +32,6 @@ export function PacienteUI(){
         <div>
         <CardTitle className="text-white text-[20px] pl-7 pt-2">Pacientes</CardTitle>
         <CardDescription className="text-gray-400 text-[16px] pl-7">Todos Seus Pacientes Abaixo. </CardDescription>
-        </div>
-        <div className="ml-auto">
-            <RefreshButton/>
         </div>
         </div>
         </CardHeader>
