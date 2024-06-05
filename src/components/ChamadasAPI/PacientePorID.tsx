@@ -8,7 +8,7 @@ export function PacientePorID() {
 
   const buscarPacientePorId = async () => {
     try {
-      const response = await axios.get(`http://20.102.117.177:5000/pacientes/${pacienteId}`);
+      const response = await axios.get(`http://localhost:5000/pacientes/${pacienteId}`);
       if (response.data && response.data.nome) {
         setPaciente(response.data);
         toast.success("Paciente encontrado com sucesso!");

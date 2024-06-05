@@ -9,7 +9,7 @@ export function DeletarPaciente() {
 
   const buscarPacientePorId = async () => {
     try {
-      const response = await axios.get(`http://20.102.117.177:5000/pacientes/${pacienteId}`);
+      const response = await axios.get(`http://localhost:5000/pacientes/${pacienteId}`);
       setPaciente(response.data);
     } catch (error) {
       console.error("Erro ao buscar paciente por ID:", error);
@@ -20,7 +20,7 @@ export function DeletarPaciente() {
 
   const deletarPaciente = async () => {
     try {
-      await axios.delete(`http://20.102.117.177:5000/pacientes/${pacienteId}`);
+      await axios.delete(`http://localhost:5000/pacientes/${pacienteId}`);
       console.log("Paciente excluído com sucesso");
       toast.success("Paciente excluído com sucesso!");
       setPaciente(null);

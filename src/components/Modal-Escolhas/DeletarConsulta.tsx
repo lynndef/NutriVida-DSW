@@ -9,7 +9,7 @@ export function DeletarConsulta() {
 
   const buscarConsultaPorId = async () => {
     try {
-      const response = await axios.get(`http://20.102.117.177:5000/consultas/${consultaId}`);
+      const response = await axios.get(`http://localhost:5000/consultas/${consultaId}`);
       setConsulta(response.data);
     } catch (error) {
       console.error("Erro ao buscar consulta por ID:", error);
@@ -19,7 +19,7 @@ export function DeletarConsulta() {
 
   const deletarConsulta = async () => {
     try {
-      await axios.delete(`http://20.102.117.177:5000/consultas/${consultaId}`);
+      await axios.delete(`http://localhost:5000/consultas/${consultaId}`);
       console.log("Consulta excluída com sucesso");
       toast.success("Consulta excluída com sucesso!");
       setConsulta(null);

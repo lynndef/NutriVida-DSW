@@ -22,7 +22,7 @@ export function Planos() {
   async function buscarPacientePlanos(event) {
     event.preventDefault();
 
-    let url = `http://20.102.117.177:5000/pacientesplanos/${pacienteId}`;
+    let url = `http://localhost:5000/pacientesplanos/${pacienteId}`;
 
     try {
       const response = await axios.get(url);
@@ -42,7 +42,7 @@ export function Planos() {
   }
 
   async function salvarPlano() {
-    let url = `http://20.102.117.177:5000/pacientesplanos/${pacienteId}`;
+    let url = `http://localhost:5000/pacientesplanos/${pacienteId}`;
 
     try {
       await axios.put(url, {

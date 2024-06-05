@@ -14,7 +14,7 @@ export function Forms(){
       isCampoVazio && alert('Por favor, preencha todos os campos.'); 
       if (isCampoVazio) return;
       
-      let url = 'http://20.102.117.177:5000/mensagens';
+      let url = 'http://localhost:5000/mensagens';
   
       let corpo = {
         "nome_rem": nome,

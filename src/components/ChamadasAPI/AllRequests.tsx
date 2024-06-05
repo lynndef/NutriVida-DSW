@@ -3,14 +3,13 @@ import axios from 'axios';
 import { Tabela } from './TabelaAll';
 import { Planos } from './Planos';
 import { InboxList } from './Inbox';
-import { RefreshCw } from 'lucide-react';
 
 export function Inbox({ MensagemSelecionada }) {
   const [mensagens, setMensagens] = useState([]);
 
   const fetchMensagens = async () => {
     try {
-      const response = await axios.get('http://20.102.117.177:5000/mensagens');
+      const response = await axios.get('http://localhost:5000/mensagens');
       setMensagens(response.data);
     } catch (error) {
       console.error('Erro ao buscar mensagens:', error);
@@ -33,7 +32,7 @@ export function Pagamentos({ showDateFilter = false }) {
 
   async function fetchPagamentos() {
     try {
-      const response = await axios.get('http://20.102.117.177:5000/consultas');
+      const response = await axios.get('http://localhost:5000/consultas');
       setPagamentos(response.data);
     } catch (error) {
       console.error('Erro ao buscar consultas:', error);
@@ -42,16 +41,13 @@ export function Pagamentos({ showDateFilter = false }) {
 
   useEffect(() => {
     fetchPagamentos();
+    const intervaloID = setInterval(fetchPagamentos, 5000); 
+
+    return () => clearInterval(intervaloID); 
   }, []);
 
   return (
     <>
-      <button 
-        className="flex items-center justify-center bg-black text-white rounded-lg ml-auto w-8 h-8 "
-        onClick={fetchPagamentos}
-      >
-       <RefreshCw size={24} />
-      </button>
       <Tabela dados={pagamentos} tipo="pagamentos" showDateFilter={showDateFilter} bgColor="bg-white" textColor="text-black"/>
     </>
   );
@@ -62,7 +58,7 @@ export function Pacientes() {
 
   async function fetchPacientes() {
     try {
-      const response = await axios.get('http://20.102.117.177:5000/pacientes');
+      const response = await axios.get('http://localhost:5000/pacientes');
       setPacientes(response.data);
     } catch (error) {
       console.error('Erro ao buscar pacientes:', error);
@@ -71,16 +67,13 @@ export function Pacientes() {
 
   useEffect(() => {
     fetchPacientes();
+    const intervaloID = setInterval(fetchPacientes, 5000);
+
+    return () => clearInterval(intervaloID); 
   }, []);
 
   return (
     <div>
-      <button 
-        className="flex items-center justify-center bg-black text-white rounded-lg ml-auto pr-6"
-        onClick={fetchPacientes}
-      >
-       <RefreshCw size={24} />
-      </button>
       <Tabela dados={pacientes} tipo="pacientes" textColor="text-white" />
     </div>
   );
@@ -92,7 +85,7 @@ export function ListaPlanos() {
   useEffect(() => {
     async function fetchPlanos() {
       try {
-        const response = await axios.get('http://20.102.117.177:5000/pacientesplanos');
+        const response = await axios.get('http://localhost:5000/pacientesplanos');
         setPlanos(response.data);
       } catch (error) {
         console.error('Erro ao buscar planos:', error);  
@@ -114,7 +107,7 @@ export function TotalConsultas() {
 
   async function fetchValorTotal() {
     try {
-      const response = await axios.get('http://20.102.117.177:5000/consultas/valor-total');
+      const response = await axios.get('http://localhost:5000/consultas/valor-total');
       setValorTotal(Number(response.data.total));
     } catch (error) {
       console.error('Erro ao buscar valor total das consultas:', error);
@@ -123,24 +116,20 @@ export function TotalConsultas() {
 
   useEffect(() => {
     fetchValorTotal();
+    const intervaloID = setInterval(fetchValorTotal, 5000);
+
+    return () => clearInterval(intervaloID); 
   }, []);
 
   return (
     <div className='flex flex-col gap-1.5'>
       <h1 className='font-bold text-[20px]'>Valor Total das Consultas</h1>
       <p>Soma dos valores de todas as consultas pagas.</p>
-      
       {valorTotal !== null ? (
         <p className='text-4xl'>{`R$ ${valorTotal.toFixed(2)}`}</p> 
       ) : (
         <p>Carregando...</p>
       )}
-      <button 
-        className="flex items-center justify-center bg-black text-white rounded-lg w-8 h-8 "
-        onClick={fetchValorTotal}
-      >
-       <RefreshCw size={24} />
-      </button>
     </div>
   );
 }

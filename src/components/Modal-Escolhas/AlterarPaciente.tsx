@@ -13,7 +13,7 @@ export function AlterarPaciente() {
     async function buscarPaciente(event) {
         event.preventDefault();
         
-        let url = `http://20.102.117.177:5000/pacientes/${id}`;
+        let url = `http://localhost:5000/pacientes/${id}`;
     
         try {
             const response = await axios.get(url);
@@ -37,7 +37,7 @@ export function AlterarPaciente() {
             return;
         }
         
-        let urlPaciente = `http://20.102.117.177:5000/pacientes/${id}`;
+        let urlPaciente = `http://localhost:5000/pacientes/${id}`;
     
         let corpoPaciente = {
             "nome": nome,

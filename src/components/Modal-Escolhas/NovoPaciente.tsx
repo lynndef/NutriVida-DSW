@@ -18,7 +18,7 @@ export function NovoPaciente(){
             return;
         }
 
-        let url = 'http://20.102.117.177:5000/pacientes';
+        let url = 'http://localhost:5000/pacientes';
     
         let corpo = {
           "nome": nome,
