@@ -112,16 +112,16 @@ export function ListaPlanos() {
 export function TotalConsultas() {
   const [valorTotal, setValorTotal] = useState(null);
 
-  useEffect(() => {
-    async function fetchValorTotal() {
-      try {
-        const response = await axios.get('http://20.102.117.177:5000/consultas/valor-total');
-        setValorTotal(Number(response.data.total));
-      } catch (error) {
-        console.error('Erro ao buscar valor total das consultas:', error);
-      }
+  async function fetchValorTotal() {
+    try {
+      const response = await axios.get('http://20.102.117.177:5000/consultas/valor-total');
+      setValorTotal(Number(response.data.total));
+    } catch (error) {
+      console.error('Erro ao buscar valor total das consultas:', error);
     }
+  }
 
+  useEffect(() => {
     fetchValorTotal();
   }, []);
 
@@ -129,11 +129,18 @@ export function TotalConsultas() {
     <div className='flex flex-col gap-1.5'>
       <h1 className='font-bold text-[20px]'>Valor Total das Consultas</h1>
       <p>Soma dos valores de todas as consultas pagas.</p>
+      
       {valorTotal !== null ? (
         <p className='text-4xl'>{`R$ ${valorTotal.toFixed(2)}`}</p> 
       ) : (
         <p>Carregando...</p>
       )}
+      <button 
+        className="flex items-center justify-center bg-black text-white rounded-lg w-8 h-8 "
+        onClick={fetchValorTotal}
+      >
+       <RefreshCw size={24} />
+      </button>
     </div>
   );
 }
