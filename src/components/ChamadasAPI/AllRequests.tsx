@@ -9,7 +9,7 @@ export function Inbox({ MensagemSelecionada }) {
 
   const fetchMensagens = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/mensagens');
+      const response = await axios.get('http://20.102.117.177:5000/mensagens');
       setMensagens(response.data);
     } catch (error) {
       console.error('Erro ao buscar mensagens:', error);
@@ -32,7 +32,7 @@ export function Pagamentos({ showDateFilter = false }) {
 
   async function fetchPagamentos() {
     try {
-      const response = await axios.get('http://localhost:5000/consultas');
+      const response = await axios.get('http://20.102.117.177:5000/consultas');
       setPagamentos(response.data);
     } catch (error) {
       console.error('Erro ao buscar consultas:', error);
@@ -58,7 +58,7 @@ export function Pacientes() {
 
   async function fetchPacientes() {
     try {
-      const response = await axios.get('http://localhost:5000/pacientes');
+      const response = await axios.get('http://20.102.117.177:5000/pacientes');
       setPacientes(response.data);
     } catch (error) {
       console.error('Erro ao buscar pacientes:', error);
@@ -85,7 +85,7 @@ export function ListaPlanos() {
   useEffect(() => {
     async function fetchPlanos() {
       try {
-        const response = await axios.get('http://localhost:5000/pacientesplanos');
+        const response = await axios.get('http://20.102.117.177:5000/pacientesplanos');
         setPlanos(response.data);
       } catch (error) {
         console.error('Erro ao buscar planos:', error);  
@@ -107,7 +107,7 @@ export function TotalConsultas() {
 
   async function fetchValorTotal() {
     try {
-      const response = await axios.get('http://localhost:5000/consultas/valor-total');
+      const response = await axios.get('http://20.102.117.177:5000/consultas/valor-total');
       setValorTotal(Number(response.data.total));
     } catch (error) {
       console.error('Erro ao buscar valor total das consultas:', error);

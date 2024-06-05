@@ -6,7 +6,7 @@ import { Trash2 } from 'lucide-react';
 export function InboxList({ dados, MensagemSelecionada, fetchMensagens }) {
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/mensagens/${id}`);
+      await axios.delete(`http://20.102.117.177:5000/mensagens/${id}`);
       toast.success('Mensagem excluída com sucesso!');
       fetchMensagens(); 
     } catch (error) {

@@ -15,7 +15,7 @@ export function AlterarConsulta() {
 
   const buscarConsultaPorId = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/consultas/${consultaId}`);
+      const response = await axios.get(`http://20.102.117.177:5000/consultas/${consultaId}`);
       setConsulta(response.data);
       setNome(response.data.nome);
       setDataConsulta(response.data.data_consulta);
@@ -23,7 +23,7 @@ export function AlterarConsulta() {
       setPagamentoStatus(response.data.pagamento_status);
       setValor(response.data.valor);
       
-      const pacienteResponse = await axios.get(`http://localhost:5000/pacientes/${response.data.paciente_id}`);
+      const pacienteResponse = await axios.get(`http://20.102.117.177:5000/pacientes/${response.data.paciente_id}`);
       setPaciente(pacienteResponse.data);
     } catch (error) {
       console.error("Erro ao buscar consulta por ID:", error);
@@ -40,7 +40,7 @@ export function AlterarConsulta() {
     }
     
     try {
-      const response = await axios.put(`http://localhost:5000/consultas/${consultaId}`, {
+      const response = await axios.put(`http://20.102.117.177:5000/consultas/${consultaId}`, {
         paciente_id: consulta.paciente_id,
         nome,
         data_consulta: dataConsulta,
