@@ -1,11 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
-import { LoginPage } from "./pages/LoginPage";
-import { LandingPage } from "./pages/LandingPage";
-import { AdminUI } from "./pages/AdminMenu";
-import { PacienteUI } from "./components/AdminPagesUI.tsx/PacientesUI";
-import { InboxUI } from "./components/AdminPagesUI.tsx/InboxUI";
-import { ConsultasUI } from "./components/AdminPagesUI.tsx/ConsultasUI";
-import { AdminHomeUI } from "./components/AdminPagesUI.tsx/HomeUI";
+import { createBrowserRouter } from 'react-router-dom';
+import { LoginPage } from './pages/LoginPage';
+import { LandingPage } from './pages/LandingPage';
+import { AdminUI } from './pages/AdminMenu';
+import { PacienteUI } from './components/AdminPagesUI.tsx/PacientesUI';
+import { InboxUI } from './components/AdminPagesUI.tsx/InboxUI';
+import { ConsultasUI } from './components/AdminPagesUI.tsx/ConsultasUI';
+import { AdminHomeUI } from './components/AdminPagesUI.tsx/HomeUI';
+import ProtectedRoute from './contexts/ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
@@ -18,23 +19,43 @@ export const router = createBrowserRouter([
   },
   {
     path: "/AdminMenu",
-    element: <AdminUI />,
+    element: (
+      <ProtectedRoute>
+        <AdminUI />
+      </ProtectedRoute>
+    ),
     children: [
       { 
         path: "", 
-        element:  <AdminHomeUI/> 
+        element: (
+          <ProtectedRoute>
+            <AdminHomeUI />
+          </ProtectedRoute>
+        ),
       },
       { 
         path: "/AdminMenu/Pacientes&Planos", 
-        element:  <PacienteUI/> 
+        element: (
+          <ProtectedRoute>
+            <PacienteUI />
+          </ProtectedRoute>
+        ),
       },
       { 
         path: "/AdminMenu/inbox", 
-        element: <InboxUI /> 
+        element: (
+          <ProtectedRoute>
+            <InboxUI />
+          </ProtectedRoute>
+        ),
       },
       { 
         path: "/AdminMenu/consultas", 
-        element: <ConsultasUI/>
+        element: (
+          <ProtectedRoute>
+            <ConsultasUI />
+          </ProtectedRoute>
+        ),
       }
     ],
   },

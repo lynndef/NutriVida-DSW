@@ -46,7 +46,10 @@ export function Forget() {
         value={confirmarSenha}
         onChange={(e) => setConfirmarSenha(e.target.value)}
       />
-      <button className="bg-black h-12 w-[300px] text-base font-primaryRegular text-white" onClick={ResetarSenha}>
+      <button
+        className="bg-black h-12 w-[300px] text-base font-primaryRegular text-white"
+        onClick={ResetarSenha}
+      >
         Redefinir senha
       </button>
     </div>

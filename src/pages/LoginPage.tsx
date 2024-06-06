@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/LandingPage/Header";
 import { DialogContent, DialogTrigger, Dialog } from "../components/ui/dialog";
@@ -10,11 +10,14 @@ export function LoginPage() {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const navigate = useNavigate();
-  const { credenciais } = usarAutenticacao();
+  const { credenciais, atualizarCredenciais} = usarAutenticacao();
+  const { validacao, setValidacao} = usarAutenticacao();
 
   function Validacao(event) {
     event.preventDefault();
     if (usuario === credenciais.usuario && senha === credenciais.senha) {
+      setValidacao(true);
+      atualizarCredenciais(usuario, senha);
       navigate("/AdminMenu");
     } else {
       toast.error('Usuário ou senha incorretos!');
